@@ -1,6 +1,7 @@
 from typing import List
 from app.models import Country
 
+
 class CountrySorter:
     def __init__(self, countries: List[Country]):
         self._countries = countries

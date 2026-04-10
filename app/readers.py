@@ -2,10 +2,12 @@ from abc import ABC, abstractmethod
 from typing import List
 from app.models import Country
 
+
 class DataReader(ABC):
     @abstractmethod
     def read(self, source: str) -> List[Country]:
         pass
+
 
 class TxtFileReader(DataReader):
     def read(self, source: str) -> List[Country]:
