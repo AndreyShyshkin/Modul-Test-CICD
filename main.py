@@ -10,3 +10,6 @@ def parse_file(file_path: str) -> list:
                     'population': int(parts[2].strip())
                 })
     return data
+
+def sort_by_area(data: list) -> list:
+    return sorted(data, key=lambda x: x['area'], reverse=True)
