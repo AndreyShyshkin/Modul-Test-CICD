@@ -19,3 +19,14 @@ def sort_by_population(data: list) -> list:
 
 if __name__ == "__main__":
     file_name = 'data.txt'
+
+    try:
+        parsed_data = parse_file(file_name)
+
+        print("Сортування за площею:")
+        for item in sort_by_area(parsed_data):
+            print(f"{item['country']} - {item['area']}")
+
+        print("\nСортування за населенням:")
+        for item in sort_by_population(parsed_data):
+            print(f"{item['country']} - {item['population']}")
