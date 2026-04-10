@@ -16,3 +16,6 @@ def sort_by_area(data: list) -> list:
 
 def sort_by_population(data: list) -> list:
     return sorted(data, key=lambda x: x['population'], reverse=True)
+
+if __name__ == "__main__":
+    file_name = 'data.txt'
