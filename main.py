@@ -30,3 +30,6 @@ if __name__ == "__main__":
         print("\nСортування за населенням:")
         for item in sort_by_population(parsed_data):
             print(f"{item['country']} - {item['population']}")
+
+    except FileNotFoundError:
+        print(f"Помилка: Файл '{file_name}' не знайдено.")
