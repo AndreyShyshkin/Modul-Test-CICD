@@ -1,38 +1,26 @@
-def parse_file(file_path: str) -> list:
-    data = []
-    with open(file_path, 'r', encoding='utf-8') as f:
-        for line in f:
-            parts = line.strip().split(',')
-            if len(parts) == 3:
-                data.append({
-                    'country': parts[0].strip(),
-                    'area': float(parts[1].strip()),
-                    'population': int(parts[2].strip())
-                })
-    return data
+from readers import TxtFileReader
+from sorters import CountrySorter
 
 
-def sort_by_area(data: list) -> list:
-    return sorted(data, key=lambda x: x['area'], reverse=True)
-
-
-def sort_by_population(data: list) -> list:
-    return sorted(data, key=lambda x: x['population'], reverse=True)
-
-
-if __name__ == "__main__":
+def main():
     file_name = 'data.txt'
+    reader = TxtFileReader()
 
     try:
-        parsed_data = parse_file(file_name)
+        data = reader.read(file_name)
+        sorter = CountrySorter(data)
 
         print("Сортування за площею:")
-        for item in sort_by_area(parsed_data):
-            print(f"{item['country']} - {item['area']}")
+        for country in sorter.by_area():
+            print(f"{country.name} - {country.area}")
 
         print("\nСортування за населенням:")
-        for item in sort_by_population(parsed_data):
-            print(f"{item['country']} - {item['population']}")
+        for country in sorter.by_population():
+            print(f"{country.name} - {country.population}")
 
     except FileNotFoundError:
         print(f"Помилка: Файл '{file_name}' не знайдено.")
+
+
+if __name__ == "__main__":
+    main()
