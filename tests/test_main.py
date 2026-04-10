@@ -1,7 +1,7 @@
 import pytest
-from models import Country
-from readers import TxtFileReader
-from sorters import CountrySorter
+from app.models import Country
+from app.readers import TxtFileReader
+from app.sorters import CountrySorter
 
 @pytest.fixture
 def sample_data():

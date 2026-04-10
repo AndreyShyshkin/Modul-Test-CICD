@@ -1,9 +1,9 @@
-from readers import TxtFileReader
-from sorters import CountrySorter
+from app.readers import TxtFileReader
+from app.sorters import CountrySorter
 
 
 def main():
-    file_name = 'data.txt'
+    file_name = 'data/data.txt'
     reader = TxtFileReader()
 
     try:

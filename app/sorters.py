@@ -1,5 +1,5 @@
 from typing import List
-from models import Country
+from app.models import Country
 
 class CountrySorter:
     def __init__(self, countries: List[Country]):
