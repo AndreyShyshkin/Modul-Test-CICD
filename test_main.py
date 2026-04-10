@@ -28,3 +28,12 @@ def test_parse_file(temp_file):
 def test_sort_by_area(sample_data, index, expected_country):
     sorted_data = sort_by_area(sample_data)
     assert sorted_data[index]['country'] == expected_country
+
+@pytest.mark.parametrize("index, expected_country", [
+    (0, 'USA'),
+    (1, 'Ukraine'),
+    (2, 'Monaco')
+])
+def test_sort_by_population(sample_data, index, expected_country):
+    sorted_data = sort_by_population(sample_data)
+    assert sorted_data[index]['country'] == expected_country
